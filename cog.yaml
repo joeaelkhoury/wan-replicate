@@ -1,0 +1,21 @@
+build:
+  gpu: true
+  cuda: "11.8"
+  python_version: "3.10"
+  python_packages:
+    - torch==2.0.1
+    - torchvision==0.15.2
+    - transformers==4.35.0
+    - ftfy==6.1.3
+    - dashscope==1.10.0
+    - numpy==1.24.3
+    - huggingface_hub==0.17.3
+    - Pillow>=9.0.0
+    - tqdm>=4.64.1
+    - einops>=0.6.0
+    - git+https://github.com/huggingface/diffusers.git@26149c0ecda67587ffd51f1a91c888388f83253b
+  system_packages:
+    - ffmpeg
+
+# Use our wrapper script to make the model compatible with Replicate
+predict: "replicate_cog_wrapper.py:main"
